@@ -286,8 +286,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substr) {
+  return str.includes(substr);
 }
 
 /**
@@ -337,8 +337,17 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sent) {
+  const str = sent.split(' ');
+  let a = 0;
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (a < str[i].length) {
+      a = str[i].length;
+      result = str[i];
+    }
+  }
+  return result;
 }
 
 /**
