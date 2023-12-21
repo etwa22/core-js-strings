@@ -194,8 +194,16 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (typeof str === 'string') {
+    let sum = 0;
+    for (let i = 0; i < str.length; i += 1) {
+      const n = str[i].charCodeAt();
+      sum += n;
+    }
+    return sum;
+  }
+  return 0;
 }
 
 /**
@@ -321,8 +329,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const newStr = str.toLowerCase().replaceAll(/[.,!?\s]/g, '');
+  const rev = newStr.split('').reverse().join('');
+  return newStr === rev;
 }
 
 /**
@@ -421,8 +431,8 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  return value.slice(6, value.length - 1).trim();
 }
 
 /**
@@ -436,8 +446,8 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, str.length - 1);
 }
 
 /**
