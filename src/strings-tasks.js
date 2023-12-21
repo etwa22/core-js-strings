@@ -360,8 +360,14 @@ function findLongestWord(sent) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const newStr = str.split(' ');
+  const result = [];
+  for (let i = 0; i < newStr.length; i += 1) {
+    const z = newStr[i].split('').reverse().join('');
+    result.push(z);
+  }
+  return result.join(' ');
 }
 
 /**
@@ -375,8 +381,17 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let result = '';
+  const low = str.toLowerCase();
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === low[i]) {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i].toLowerCase();
+    }
+  }
+  return result;
 }
 
 /**
