@@ -249,8 +249,10 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const a = String(minutes).padStart(2, '0');
+  const b = String(seconds).padStart(2, '0');
+  return a.concat(':', b);
 }
 
 /**
@@ -278,8 +280,8 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
 
 /**
@@ -312,8 +314,16 @@ function containsSubstring(str, substr) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const newStr = str.toLowerCase().split('');
+  let result = 0;
+  const v = 'aeiouy';
+  for (let i = 0; i < newStr.length; i += 1) {
+    if (v.includes(newStr[i])) {
+      result += 1;
+    }
+  }
+  return result;
 }
 
 /**
